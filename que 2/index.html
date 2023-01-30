@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<br>
+    <div id="string"></div></br>
+    <div id="sprededstring"></div>
+
+    <script>
+        let text = "This is the javascript";
+
+        let rawdata = text.split("")
+
+        const counteNames = rawdata.reduce((char, name) => {
+            const currCount = char[name] ?? 0;
+            return {
+                ...char,
+                [name]: currCount + 1,
+            };
+        }, []);
+
+        for (const key in counteNames) {
+            console.log(key)
+            document.getElementById("sprededstring").innerHTML += ` ${key} : ${counteNames[key]} <br>`
+
+        }
+        console.log(counteNames);
+
+        document.getElementById("string").innerHTML = `${text}`
+    </script>
+</body>
+
+</html>
